@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.js": "/static/js/main.247ce64c.chunk.js",
+    "main.js.map": "/static/js/main.247ce64c.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.ae78184e.js",
+    "runtime-main.js.map": "/static/js/runtime-main.ae78184e.js.map",
+    "static/css/2.1cad6180.chunk.css": "/static/css/2.1cad6180.chunk.css",
+    "static/js/2.f109b686.chunk.js": "/static/js/2.f109b686.chunk.js",
+    "static/js/2.f109b686.chunk.js.map": "/static/js/2.f109b686.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.ed3d08770122f329817789baebd6f2fa.js": "/precache-manifest.ed3d08770122f329817789baebd6f2fa.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.1cad6180.chunk.css.map": "/static/css/2.1cad6180.chunk.css.map",
+    "static/js/2.f109b686.chunk.js.LICENSE.txt": "/static/js/2.f109b686.chunk.js.LICENSE.txt",
+    "static/media/appStore.svg": "/static/media/appStore.313c7084.svg",
+    "static/media/arrowDown.svg": "/static/media/arrowDown.39a66f54.svg",
+    "static/media/check.svg": "/static/media/check.9acf19ad.svg",
+    "static/media/fb.svg": "/static/media/fb.2237ab48.svg",
+    "static/media/getStartedBG.png": "/static/media/getStartedBG.5f93efdd.png",
+    "static/media/googlePlay.svg": "/static/media/googlePlay.c662dfbc.svg",
+    "static/media/howSlideBG.png": "/static/media/howSlideBG.fdc2efec.png",
+    "static/media/inst.svg": "/static/media/inst.bb464f1c.svg",
+    "static/media/logo.svg": "/static/media/logo.de247682.svg",
+    "static/media/logoBlack.svg": "/static/media/logoBlack.711a6b86.svg",
+    "static/media/minus.9afc5f2c.svg": "/static/media/minus.9afc5f2c.svg",
+    "static/media/pickPlanBG.png": "/static/media/pickPlanBG.bbf61907.png",
+    "static/media/playBtn.svg": "/static/media/playBtn.4913fc63.svg",
+    "static/media/playFilm.svg": "/static/media/playFilm.a73776eb.svg",
+    "static/media/plus.6983c408.svg": "/static/media/plus.6983c408.svg",
+    "static/media/sample_video.mp4": "/static/media/sample_video.d7a3decd.mp4",
+    "static/media/tg.svg": "/static/media/tg.7717094b.svg",
+    "static/media/twitter.svg": "/static/media/twitter.f29a46fb.svg",
+    "static/media/yt.svg": "/static/media/yt.72d08f28.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.ae78184e.js",
+    "static/css/2.1cad6180.chunk.css",
+    "static/js/2.f109b686.chunk.js",
+    "static/js/main.247ce64c.chunk.js"
+  ]
+}
