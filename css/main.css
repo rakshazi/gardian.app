@@ -6,11 +6,11 @@ body {
 }
 
 .fullpage-wrapper {
-    background-color: #e6e5e6!important;
+    background-color: #e6e5e6 !important;
 }
 
-::-webkit-media-control-panel {
-    display:none !important;
+video::-webkit-media-controls {
+    display: none !important;
 }
 
 /* http://meyerweb.com/eric/tools/css/reset/
