@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Rubik:wght@500&display=swap"
       rel="stylesheet"
     />
-    <link rel="icon" href="/images/favicon.ico" />
+    <link rel="icon" href="images/favicon.ico" />
     <title>Gardian</title>
   </head>
   <style>
@@ -21,7 +21,6 @@
       height: 100%;
       font-family: "Roboto";
       background: #f6f6f6;
-      padding-bottom: 25px;
       box-sizing: border-box;
     }
     .logo {
@@ -53,7 +52,7 @@
       display: flex;
       flex-direction: column;
       box-sizing: border-box;
-      height: 100%;
+      height: 100vh;
       padding-top: 78px;
     }
     @media (max-width: 768px) {
@@ -171,6 +170,11 @@
       cursor: pointer;
       margin-bottom: 31px;
     }
+    .button :disabled,
+    .button[disabled] {
+      background: gray;
+      cursor: not-allowed;
+    }
     .button span {
       font-style: normal;
       font-weight: bold;
@@ -187,6 +191,17 @@
       line-height: 16px;
       text-align: start;
       color: #000000;
+      margin-bottom: 15px;
+    }
+    .error {
+      color: red;
+      font-size: 14px;
+      display: none;
+      margin-bottom: 15px;
+      max-width: 754px;
+    }
+    .error a {
+      color: #2f3030;
     }
   </style>
   <body>
@@ -197,7 +212,7 @@
 
       <div class="title">Кнопка помощи твоей семье</div>
 
-      <div class="description">
+      <div class="description" id="description">
         Мы скоро запустим сервис, оставьте свой номер телефона и мы вам сообщим
         как только это случится
       </div>
@@ -214,14 +229,24 @@
           </div>
         </div>
 
-        <button class="button" type="submit">
+        <div class="error" id="error">
+          Что-то пошло не так, и мы не смогли сохранить ваши данные. Пожалуйста
+          перепроверьте ваш номер телефона и, если ошибка повторяется- напишите
+          нам на
+          <a
+            href="mailto:family@gardian.app"
+            target="_blanck"
+            rel="noopener noreferrer"
+            >family@gardian.app</a
+          >
+        </div>
+        <button class="button" type="submit" id="submit">
           <span> Отправить </span>
         </button>
+        <div class="info">
+          *Нажимая на кнопку, вы даёте согласие на обработку ваших данных
+        </div>
       </form>
-
-      <div class="info">
-        *Нажимая на кнопку, вы даёте согласие на обработку ваших данных
-      </div>
     </div>
     <script>
       let name = "";
@@ -237,12 +262,35 @@
         phone = value.replace(/\s/g, "");
       });
 
-      document.getElementById("form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        window.location = `https://docs.google.com/forms/d/e/1FAIpQLSdwWVDMmzn26axsGRfsgcvlDwHNd2JexA7Qj5N8yJrSOVbg9Q/formResponse?usp=pp_url&entry.1098055364=${name}&entry.861336511=373${phone}`;
-        document.getElementById("phone").value = "";
-        document.getElementById("name").value = "";
-      });
+      document
+        .getElementById("form")
+        .addEventListener("submit", async function (e) {
+          e.preventDefault();
+          const formatedName = encodeURIComponent(name);
+          const formatedPhone = encodeURIComponent(phone);
+          const url = `https://docs.google.com/forms/d/e/1FAIpQLSdwWVDMmzn26axsGRfsgcvlDwHNd2JexA7Qj5N8yJrSOVbg9Q/formResponse?usp=pp_url&entry.1098055364=${formatedName}&entry.861336511=373${formatedPhone}&submit=SUBMIT`;
+          document.getElementById("submit").setAttribute("disabled", true);
+          const res = fetch(url, {
+            method: "POST",
+            mode: "no-cors",
+            redirect: "follow",
+            referrer: "no-referrer",
+          })
+            .then(function (response) {
+              return response.text();
+            })
+            .then(function (text) {
+              document.getElementById("description").innerHTML =
+                "Cпасибо, что оставили свои данные, мы вам сообщим об обновлениях";
+              document.getElementById("form").style.display = "none";
+              document.getElementById("submit").removeAttribute("disabled");
+            })
+
+            .catch(function (error) {
+              document.getElementById("error").style.display = "block";
+              document.getElementById("submit").removeAttribute("disabled");
+            });
+        });
 
       const handleName = (e) => {
         name = document.getElementById("name").value;
